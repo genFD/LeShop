@@ -1,5 +1,6 @@
 {
   "name": "2-E-COMMERCE-LE-SHOP",
+  "proxy": "http://127.0.0.1:4000",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

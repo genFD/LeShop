@@ -1,16 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  NavItem,
-} from 'react-bootstrap';
+
+import { Navbar, Container, Nav, NavItem } from 'react-bootstrap';
 
 const Header = () => {
   return (
