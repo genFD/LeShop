@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 const userSchema = mongoose.Schema(
   {
@@ -26,17 +27,17 @@ const userSchema = mongoose.Schema(
   }
 );
 
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 const User = mongoose.model('User', userSchema);
-// const User = mongoose.models['User'] || mongoose.model('User', userSchema);
-
-// var User;
-
-// if (mongoose.models.User) {
-//   User = mongoose.model('User');
-// } else {
-//   User = mongoose.model('User', userSchema);
-// }
-
-// module.exports = Admin;
 
 export default User;

@@ -4,17 +4,21 @@ import connectDB from './Config/Db.js';
 import { notFound, errorHandler } from './Middleware/errorMiddleware.js';
 import colors from 'colors';
 import productRoutes from './Routes/productRoutes.js';
+import userRoutes from './Routes/userRoutes.js';
+
 dotenv.config();
 connectDB();
 
 const app = express();
+app.use(express.json());
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
-app.use('/api/products/', productRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 app.use(notFound);
-
 app.use(errorHandler);
+
 const PORT = process.env.PORT || 4000;
 
 app.listen(
