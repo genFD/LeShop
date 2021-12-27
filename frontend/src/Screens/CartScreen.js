@@ -14,7 +14,7 @@ import {
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../Actions/cartActions';
 
-const CartScreen = ({ match, location, history }) => {
+const CartScreen = ({ match, location }) => {
   const productId = match.params.id;
 
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
