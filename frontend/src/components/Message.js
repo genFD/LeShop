@@ -9,11 +9,4 @@ Error.defaultProps = {
   variant: 'info',
 };
 
-// const Message = () => {
-//   return (
-//     <div>
-//       <h1>error..</h1>
-//     </div>
-//   );
-// };
 export default Message;

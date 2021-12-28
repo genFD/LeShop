@@ -14,7 +14,7 @@ import {
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../Actions/cartActions';
 
-const CartScreen = ({ match, location }) => {
+const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
 
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
@@ -34,7 +34,7 @@ const CartScreen = ({ match, location }) => {
   };
   const checkOutHandler = () => {
     console.log('hello checkout');
-    // history.push('/login?redirect=shipping');
+    history.push('/login?redirect=shipping');
   };
   return (
     <Row>
