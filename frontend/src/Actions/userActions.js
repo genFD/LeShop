@@ -103,7 +103,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     } = getState();
     const config = {
       headers: {
-        'content-Type': 'Application/json',
+        'content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     };

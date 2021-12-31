@@ -33,7 +33,6 @@ const CartScreen = ({ match, location, history }) => {
     dispatch(removeFromCart(id));
   };
   const checkOutHandler = () => {
-    console.log('hello checkout');
     history.push('/login?redirect=shipping');
   };
   return (
@@ -47,7 +46,7 @@ const CartScreen = ({ match, location, history }) => {
         ) : (
           <ListGroup variant='flush'>
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product}>
+              <ListGroupItem key={item.product}>
                 <Row>
                   <Col md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />
@@ -81,7 +80,7 @@ const CartScreen = ({ match, location, history }) => {
                     </Button>
                   </Col>
                 </Row>
-              </ListGroup.Item>
+              </ListGroupItem>
             ))}
           </ListGroup>
         )}
@@ -89,7 +88,7 @@ const CartScreen = ({ match, location, history }) => {
       <Col md={4}>
         <Card variant='flush'>
           <ListGroup>
-            <ListGroup.Item>
+            <ListGroupItem>
               <h2 style={{ fontSize: '1rem', padding: '0.5rem' }}>
                 Subtotal({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
@@ -98,7 +97,7 @@ const CartScreen = ({ match, location, history }) => {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
-            </ListGroup.Item>
+            </ListGroupItem>
             <ListGroupItem>
               <Button
                 type='button'
